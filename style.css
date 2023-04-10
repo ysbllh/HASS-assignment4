@@ -1,0 +1,93 @@
+body {
+    background-color:beige;
+    width: 100%
+}
+
+
+svg{
+    transform: scale(0.9)
+}
+div.tooltip{
+    position:absolute;
+    text-align:center;
+    max-width: 100%;
+    height:50px;
+    padding:5px;
+    font:50px sans-serif;
+    background:lightgoldenrodyellow;
+    border:indigo solid;
+    border-radius:0vmin;
+    bottom: 100%;
+    left: 50%;
+    white-space: nowrap;
+    pointer-events:none;}
+
+
+h1{
+    font-size:80px;
+    text-align: center;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+h2{
+    font-size: 60px;
+    text-align: center;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    padding-left: 5px;
+}
+
+h3{
+    font-size: 60px;
+    text-align: center;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    padding-left: 5px;
+}
+
+svg{
+    justify-content: center;
+}
+
+
+button {
+    font-family: 'Nunito',sans-serif;
+    font-weight:700;
+    font-size: 15px;
+    border: none;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    display: inline-block;
+    transition-duration: 0.3s;
+}
+
+.femButton {
+    background-color: #e6571a; 
+    color: white; 
+
+}
+  
+.femButton:hover {
+    background-color: #b11a3a;
+    color: white;
+}
+  
+.maleButton {
+    background-color:purple; 
+    color: white; 
+
+}
+  
+.maleButton:hover {
+    background-color: #5250d7;
+    color: white;
+}
+  
+.totButton {
+    background-color:rgb(131, 115, 28); 
+    color:white; 
+}
+  
+.totButton:hover {
+    background-color: #013913;
+    color: white;
+}
