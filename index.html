@@ -39,7 +39,8 @@ let max = 23000;
 mapData.forEach(d => {  
   let subzone = popData.find(e => e.Subzone.toUpperCase() == d.properties['Subzone Name']);
   d.popdata = (subzone != undefined) ? parseInt(subzone.Population) : 0;
-  
+  d.maledata = (subzone != undefined) ? parseInt(subzone.MalePop) : 0;
+  d.femaledata = (subzone != undefined) ? parseInt(subzone.FemalePop) : 0;
 })
 
 
@@ -75,7 +76,11 @@ svg.append("g")
     //.attr("fill", d => d3.interpolateYlGnBu(colorScale(d.popdata)))
     .on("mouseover", (event, d) => {
         d3.select(".tooltip")
-        .text(`Subzone: ${d.properties["Subzone Name"]}, Senior Citizen Population: ${parseInt(d.popdata).toLocaleString('en-US')}`)
+        .html(`<strong> Subzone: ${d.properties["Subzone Name"]} </strong> <br>
+            Senior Citizen Population: ${parseInt(d.popdata).toLocaleString('en-US')}<br>
+             of which Male: ${parseInt(d.maledata).toLocaleString('en-US')}<br>
+             of which Female: ${parseInt(d.femaledata).toLocaleString('en-US')} <br> 
+             `)     
         .style("position", "absolute")
         .style("background", "aliceblue")
         .style("left", (event.pageX) + "px")
