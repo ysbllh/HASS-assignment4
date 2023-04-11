@@ -9,16 +9,17 @@ svg{
 }
 div.tooltip{
     position:absolute;
-    text-align:center;
+    text-align:left;
     max-width: 50%;
-    height:14px;
+    height:65px;
     padding:2px;
-    font:14px sans-serif;
-    background:lightgoldenrodyellow;
+    font:14px Lucida;
+    background:rgb(186, 186, 140);
     border:indigo solid;
-    border-radius:0vmin;
+    border-radius:5px;
     bottom: 100%;
     left: 50%;
+    opacity: 0.85;   
     white-space: nowrap;
     pointer-events:none;}
 
