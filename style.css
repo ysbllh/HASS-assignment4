@@ -14,12 +14,8 @@ div.tooltip{
     height:65px;
     padding:2px;
     font:14px Lucida;
-    background:rgb(186, 186, 140);
-    border:indigo solid;
-    border-radius:5px;
     bottom: 100%;
     left: 50%;
-    opacity: 0.85;   
     white-space: nowrap;
     pointer-events:none;}
 
