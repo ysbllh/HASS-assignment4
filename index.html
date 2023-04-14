@@ -14,7 +14,7 @@
     <h1>Where do senior citizens in Singapore reside?</h1>
     <h2>In Singapore, senior citizens are commonly defined as Singapore citizens aged 65 years old and above.
         In 2022, 18.4% of Singapore citizens are senior citizens (<a href = "https://str.sg/wrey">The Straits Times</a> , 2022).
-    From the visualisation below, we can observe that Tampines East subzone has the most senior citizens, and that senior citizen count in the Eastern subzone is the highest. 
+    From the visualisation below, we can observe that Tampines East subzone has the most senior citizens among the subzones, and that senior citizen count in the Eastern subzones are the highest. 
          </h2>
 <svg></svg>
 <div class="tooltip"></div> 
@@ -41,6 +41,8 @@ mapData.forEach(d => {
   d.popdata = (subzone != undefined) ? parseInt(subzone.Population) : 0;
   d.maledata = (subzone != undefined) ? parseInt(subzone.MalePop) : 0;
   d.femaledata = (subzone != undefined) ? parseInt(subzone.FemalePop) : 0;
+  d.malepercent = d.maledata/d.popdata*100
+  d.femalepercent = d.femaledata/d.popdata*100
 })
 
 
@@ -78,17 +80,20 @@ svg.append("g")
         d3.select(".tooltip")
         .html(`<strong> Subzone: ${d.properties["Subzone Name"]} </strong> <br>
             Senior Citizen Population: ${parseInt(d.popdata).toLocaleString('en-US')}<br>
-             of which Male: ${parseInt(d.maledata).toLocaleString('en-US')}<br>
-             of which Female: ${parseInt(d.femaledata).toLocaleString('en-US')} <br> 
+             of which Male: ${parseInt(d.maledata).toLocaleString('en-US')} (${parseInt(d.malepercent).toLocaleString('en-US')}%)<br>
+             of which Female: ${parseInt(d.femaledata).toLocaleString('en-US')} (${parseInt(d.femalepercent).toLocaleString('en-US')}%)<br> 
              `)     
         .style("position", "absolute")
         .style("background", "aliceblue")
         .style("left", (event.pageX) + "px")
         .style("top", (event.pageY) + "px")
+        .style("background", "white")
+        .style("border", "indigo solid")
+        .style("border-radius", "5px")
+        .style("opacity", 0.85)
         d3.select(event.currentTarget)       
         .style("stroke", "purple")
         .attr("stroke-width",2)
-        .attr("fill-opacity","1.0")
       })
     .on("mouseout", (event, d) => {
         d3.select(event.currentTarget)
@@ -97,6 +102,9 @@ svg.append("g")
         .attr("fill-opacity","1")
         d3.select(".tooltip")
         .text("")
+        .style("background","")
+        .style("border","")
+        .attr("opacity",0)
       })    
 
 })
